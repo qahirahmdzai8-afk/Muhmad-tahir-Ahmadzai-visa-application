@@ -27,7 +27,6 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  position:relative;
 }
 
 .logo img{
@@ -40,7 +39,7 @@ body{
   cursor:pointer;
 }
 
-/* ===== OFFICIAL MENU (مثل سایت اصلی) ===== */
+/* ===== OFFICIAL MENU ===== */
 .menu{
   display:none;
   background:#ffffff;
@@ -52,12 +51,7 @@ body{
   padding:14px 22px;
   text-decoration:none;
   color:#4f4f4f;
-  font-size:15px;
   border-top:1px solid #f0f0f0;
-}
-
-.menu a:hover{
-  background:#f5f7fa;
 }
 
 /* ===== CARD ===== */
@@ -146,6 +140,7 @@ body{
   color:#4f4f4f;
 }
 
+/* Back to Login */
 .back-btn{
   margin-top:26px;
 }
@@ -207,12 +202,11 @@ body{
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 
-<!-- OFFICIAL MENU -->
+<!-- MENU -->
 <div class="menu" id="menu">
   <a href="#">Home</a>
   <a href="#">Visa Status</a>
-  <a href="#">Apply Visa</a>
-  <a href="login.html">Back to Login</a>
+  <a href="#" onclick="officialLogout()">Back to Login</a>
 </div>
 
 <!-- CARD -->
@@ -255,7 +249,7 @@ body{
     <div class="value">60 day(s)</div>
 
     <div class="back-btn">
-      <a href="login.html">Back to Login</a>
+      <a href="#" onclick="officialLogout()">Back to Login</a>
     </div>
 
   </div>
@@ -264,16 +258,26 @@ body{
 </div>
 
 <script>
-/* Loader */
+/* Loader First Load */
 setTimeout(()=>{
   document.getElementById("loader").style.display="none";
   document.getElementById("app").style.display="block";
 },2000);
 
-/* Official Menu Toggle */
+/* Menu Toggle */
 function toggleMenu(){
-  const menu = document.getElementById("menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
+  const menu=document.getElementById("menu");
+  menu.style.display = menu.style.display==="block" ? "none":"block";
+}
+
+/* ✅ Official Logout */
+function officialLogout(){
+  document.getElementById("app").style.display="none";
+  document.getElementById("loader").style.display="flex";
+
+  setTimeout(()=>{
+    window.location.href="login.html";
+  },2000);
 }
 </script>
 
