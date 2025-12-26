@@ -13,17 +13,16 @@
   font-family:Arial, sans-serif;
 }
 
+/* ===== PAGE ===== */
 body{
   background:#f2f2f2;
+  min-height:100vh;
 }
 
 /* ===== LOADER ===== */
 #loader{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   background:#fff;
   display:flex;
   justify-content:center;
@@ -63,12 +62,12 @@ body{
 
 /* ===== HEADER ===== */
 .header{
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  padding:10px 12px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:8px 12px;
-  background:#fff;
-  border-bottom:1px solid #ddd;
 }
 
 .logo img{
@@ -95,13 +94,21 @@ body{
   border-top:1px solid #eee;
 }
 
-/* ===== CONTENT ===== */
+/* ===== MAIN ===== */
+.main{
+  display:flex;
+  justify-content:center;
+  padding:20px 10px;
+}
+
+/* ===== CARD ===== */
 .card{
+  width:100%;
   max-width:420px;
-  margin:0 auto;
   background:#fff;
   padding:18px;
   text-align:center;
+  border-radius:4px;
 }
 
 .ref{
@@ -126,9 +133,10 @@ body{
 
 .value{
   font-size:16px;
-  margin-top:3px;
+  margin-top:4px;
 }
 
+/* ===== LOGOUT ===== */
 .logout{
   max-width:420px;
   margin:15px auto;
@@ -173,29 +181,43 @@ body{
 </div>
 
 <!-- CONTENT -->
-<div class="card">
+<div class="main">
+  <div class="card">
 
-  <div class="ref">
-    Visa Reference Number<br>
-    88004451584
+    <div class="ref">
+      Visa Reference Number<br>
+      88006011480
+    </div>
+
+    <div class="photo">
+      <img src="photo.jpg" alt="Photo">
+    </div>
+
+    <div class="label">Name</div>
+    <div class="value">Safi Mudasir</div>
+
+    <div class="label">Passport No</div>
+    <div class="value">P05926591</div>
+
+    <div class="label">Passport Country</div>
+    <div class="value">Afghanistan</div>
+
+    <div class="label">Visa Category</div>
+    <div class="value">Tourist / Visit</div>
+
+    <div class="label">Visa Sub Category</div>
+    <div class="value">Individual (Less Than 3 Months)</div>
+
+    <div class="label">Application Type</div>
+    <div class="value">Entry</div>
+
+    <div class="label">Staying Facility</div>
+    <div class="value">Multiple Entry – Up to 1 Year</div>
+
+    <div class="label">Visa Start Date</div>
+    <div class="value">07 Jan 2025</div>
+
   </div>
-
-  <div class="photo">
-    <img src="photo.jpg" alt="Photo">
-  </div>
-
-  <div class="label">Name</div>
-  <div class="value">Ahmadzai Mohammadzai</div>
-
-  <div class="label">Passport No</div>
-  <div class="value">P00015454</div>
-
-  <div class="label">Visa Start Date</div>
-  <div class="value">11 Nov 2025</div>
-
-  <div class="label">Visa Expiry Date</div>
-  <div class="value">11 May 2026</div>
-
 </div>
 
 <div class="logout" onclick="logout()">Logout</div>
