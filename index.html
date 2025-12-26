@@ -1,196 +1,279 @@
-<!tml lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pak Visa</title>
+<title>Pak Visa – Official Visa Layout</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-  background:#f2f2f2;
+  background:#ffffff;
+  color:#4f4f4f;
+  padding:0 22px;
 }
 
 /* ===== HEADER ===== */
 .header{
+  background:#ffffff;
+  border-bottom:1px solid #e1e1e1;
+  padding:12px 22px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:8px 12px;
-  background:#fff;
-  border-bottom:1px solid #ddd;
+  justify-content:space-between;
+  position:relative;
 }
 
 .logo img{
-  height:40px;
-  display:block;
+  height:42px;
 }
 
 .menu-btn{
-  font-size:26px;
+  font-size:28px;
+  color:#1f4fa3;
   cursor:pointer;
 }
 
-/* ===== MENU ===== */
-#menu{
+/* ===== OFFICIAL MENU (مثل سایت اصلی) ===== */
+.menu{
   display:none;
-  background:#fff;
-  border-bottom:1px solid #ddd;
+  background:#ffffff;
+  border-bottom:1px solid #e1e1e1;
 }
 
-#menu a{
+.menu a{
   display:block;
-  padding:12px;
+  padding:14px 22px;
   text-decoration:none;
-  color:#000;
-  border-top:1px solid #eee;
+  color:#4f4f4f;
+  font-size:15px;
+  border-top:1px solid #f0f0f0;
 }
 
-/* ===== CONTENT ===== */
+.menu a:hover{
+  background:#f5f7fa;
+}
+
+/* ===== CARD ===== */
 .card{
-  max-width:420px;
-  margin:0 auto;
-  background:#fff;
-  padding:18px;
-  text-align:center;
+  max-width:380px;
+  margin:26px auto;
+  background:#f2f5f7;
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
 }
 
-.ref{
-  color:#0a7dbd;
-  font-size:18px;
-  font-weight:bold;
-  margin:10px 0;
+/* خط آبی */
+.top-line{
+  position:absolute;
+  top:14px;
+  left:14px;
+  width:70px;
+  height:4px;
+  background:#1f4fa3;
+}
+
+/* محتوا */
+.content{
+  padding:28px 26px 26px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+
+/* Back Logo */
+.card::after{
+  content:"";
+  position:absolute;
+  bottom:-40px;
+  left:50%;
+  transform:translateX(-50%);
+  width:260px;
+  height:260px;
+  background:url("logo.jpg") no-repeat center;
+  background-size:contain;
+  opacity:0.02;
+  z-index:0;
+}
+
+.ref-title{
+  color:#1f4fa3;
+  font-size:19px;
+  font-weight:600;
+}
+
+.ref-number{
+  margin-top:8px;
+  font-size:26px;
+  font-weight:700;
+  color:#1f4fa3;
+}
+
+.divider{
+  height:1px;
+  background:#dcdcdc;
+  margin:20px 0;
+}
+
+.photo{
+  width:190px;
+  margin:0 auto 18px;
+  background:#ffffff;
+  padding:6px;
 }
 
 .photo img{
-  width:140px;
-  height:180px;
-  object-fit:cover;
-  border:1px solid #ccc;
-  margin:10px 0;
+  width:100%;
 }
 
-/* ===== TEXT ===== */
 .label{
-  color:#888;
+  margin-top:20px;
   font-size:13px;
-  margin-top:12px;
+  font-weight:700;
+  color:#8a8a8a;
 }
 
 .value{
+  margin-top:6px;
   font-size:16px;
-  margin-top:3px;
+  color:#4f4f4f;
 }
 
-/* ===== BUTTON ===== */
-.logout{
-  max-width:420px;
-  margin:15px auto;
-  background:#0a7dbd;
-  color:#fff;
-  padding:12px;
-  text-align:center;
-  border-radius:3px;
-  cursor:pointer;
+.back-btn{
+  margin-top:26px;
 }
 
-.footer{
-  text-align:center;
-  font-size:12px;
-  color:#555;
-  padding:15px 5px;
+.back-btn a{
+  display:inline-block;
+  background:#1f4fa3;
+  color:#ffffff;
+  padding:12px 30px;
+  text-decoration:none;
+  font-size:15px;
+  border-radius:2px;
 }
 
-/* ===== PRINT (PDF) ===== */
-@media print{
-  .menu-btn,
-  #menu,
-  .logout{
-    display:none !important;
-  }
+/* ===== LOADER ===== */
+.loader-bg{
+  position:fixed;
+  inset:0;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.loader{
+  width:70px;
+  height:70px;
+  border:4px solid #e3ecf6;
+  border-top:4px solid #1f4fa3;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
+
+#app{
+  display:none;
 }
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div class="loader-bg" id="loader">
+  <div class="loader"></div>
+</div>
+
+<div id="app">
+
 <!-- HEADER -->
 <div class="header">
-  <div class="logo jpg">
+  <div class="logo">
     <img src="logo.jpg" alt="Pak Visa">
   </div>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 
-<!-- MENU -->
-<div id="menu">
+<!-- OFFICIAL MENU -->
+<div class="menu" id="menu">
   <a href="#">Home</a>
   <a href="#">Visa Status</a>
-  <a href="#">Contact</a>
+  <a href="#">Apply Visa</a>
+  <a href="login.html">Back to Login</a>
 </div>
 
-<!-- CONTENT -->
+<!-- CARD -->
 <div class="card">
+  <div class="top-line"></div>
 
-  <div class="ref">
-    Visa Reference Number -<br>
-    88006011480
+  <div class="content">
+
+    <div class="ref-title">Visa Reference Number –</div>
+    <div class="ref-number">88004451584</div>
+
+    <div class="divider"></div>
+
+    <div class="photo">
+      <img src="photo.jpg">
+    </div>
+
+    <div class="label">NAME</div>
+    <div class="value">Ahmad Zai Abdul Qahir</div>
+
+    <div class="label">PASSPORT NO</div>
+    <div class="value">P04382582</div>
+
+    <div class="label">PASSPORT COUNTRY</div>
+    <div class="value">Afghanistan</div>
+
+    <div class="label">APPLICATION TYPE</div>
+    <div class="value">Entry</div>
+
+    <div class="label">STAYING FACILITY</div>
+    <div class="value">Multiple Entry – Upto 1 Year</div>
+
+    <div class="label">VISA START DATE</div>
+    <div class="value">07 Jan 2025</div>
+
+    <div class="label">VISA END DATE</div>
+    <div class="value">06 Jul 2025</div>
+
+    <div class="label">VISA DURATION</div>
+    <div class="value">60 day(s)</div>
+
+    <div class="back-btn">
+      <a href="login.html">Back to Login</a>
+    </div>
+
   </div>
-
-  <div class="photo">
-    <img src="photo.jpg" alt="Photo">
-  </div>
-
-  <div class="label">NAME</div>
-  <div class="value">Safi Mudasir</div>
-
-  <div class="label">Passport No</div>
-  <div class="value">P05926591</div>
-
-  <div class="label">Passport Country</div>
-  <div class="value">Afghanistan</div>
-
-  <div class="label">Visa Category</div>
-  <div class="value">Tourist / Visit</div>
-
-  <div class="label">Visa Sub Category</div>
-  <div class="value">Individual (Less Than 3 Months)</div>
-
-  <div class="label">Application Type</div>
-  <div class="value">Entry</div>
-
-  <div class="label">Staying Facility</div>
-  <div class="value">Multiple Entry – Upto 1 Year</div>
-
-  <div class="label">Visa Start Date</div>
-  <div class="value">21 Dec 2025</div>
-
-  <!-- ADDED فقط -->
-  <div class="label">Visa End Date</div>
-  <div class="value">20 Jun 2026</div>
-
-  <div class="label">Visa Duration</div>
-  <div class="value">60 Day(s)</div>
-
 </div>
 
-<!-- BUTTON -->
-<div class="logout">Back to Login</div>
-
-<div class="footer">
-  COPYRIGHT © 2015 – 2025 MINISTRY OF INTERIOR<br>
-  GOVERNMENT OF PAKISTAN
 </div>
 
 <script>
+/* Loader */
+setTimeout(()=>{
+  document.getElementById("loader").style.display="none";
+  document.getElementById("app").style.display="block";
+},2000);
+
+/* Official Menu Toggle */
 function toggleMenu(){
-  var m = document.getElementById("menu");
-  m.style.display = (m.style.display === "block") ? "none" : "block";
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 </script>
 
