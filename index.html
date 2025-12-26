@@ -75,26 +75,74 @@ body{
   height:40px;
 }
 
+.menu-btn{
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ===== MENU ===== */
+#menu{
+  display:none;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+}
+
+#menu a{
+  display:block;
+  padding:12px;
+  text-decoration:none;
+  color:#000;
+  border-top:1px solid #eee;
+}
+
 /* ===== CONTENT ===== */
 .card{
   max-width:420px;
-  margin:20px auto;
+  margin:0 auto;
   background:#fff;
-  padding:20px;
+  padding:18px;
+  text-align:center;
+}
+
+.ref{
+  font-size:20px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.photo img{
+  width:140px;
+  height:180px;
+  object-fit:cover;
+  border:1px solid #ccc;
+  margin:10px 0;
 }
 
 .label{
   color:#888;
   font-size:13px;
-  margin-top:14px;
+  margin-top:12px;
 }
 
 .value{
-  font-size:17px;
-  margin-top:4px;
-  font-weight:bold;
+  font-size:16px;
+  margin-top:3px;
 }
 
+.logout{
+  max-width:420px;
+  margin:15px auto;
+  background:#0a7dbd;
+  color:#fff;
+  padding:12px;
+  text-align:center;
+  border-radius:3px;
+  cursor:pointer;
+}
+
+@media print{
+  .menu-btn,#menu,.logout{display:none;}
+}
 </style>
 </head>
 
@@ -114,15 +162,32 @@ body{
   <div class="logo">
     <img src="logo.jpg" alt="Pak Visa">
   </div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+
+<!-- MENU -->
+<div id="menu">
+  <a href="#">Home</a>
+  <a href="#">Visa Status</a>
+  <a href="#">Contact</a>
 </div>
 
 <!-- CONTENT -->
 <div class="card">
 
-  <div class="label">Name</div>
-  <div class="value">احمدزی محمدزی</div>
+  <div class="ref">
+    Visa Reference Number<br>
+    88004451584
+  </div>
 
-  <div class="label">Passport Number</div>
+  <div class="photo">
+    <img src="photo.jpg" alt="Photo">
+  </div>
+
+  <div class="label">Name</div>
+  <div class="value">Ahmadzai Mohammadzai</div>
+
+  <div class="label">Passport No</div>
   <div class="value">P00015454</div>
 
   <div class="label">Visa Start Date</div>
@@ -133,7 +198,18 @@ body{
 
 </div>
 
+<div class="logout" onclick="logout()">Logout</div>
+
 <script>
+function toggleMenu(){
+  var m=document.getElementById("menu");
+  m.style.display=(m.style.display==="block")?"none":"block";
+}
+
+function logout(){
+  alert("Logged out successfully");
+}
+
 window.addEventListener("load",function(){
   setTimeout(function(){
     document.getElementById("loader").style.display="none";
