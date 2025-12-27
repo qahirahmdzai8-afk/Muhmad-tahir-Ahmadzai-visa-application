@@ -39,6 +39,7 @@ body{
   background:#e1e1e1;
 }
 
+/* 🔹 لوگو کاملاً از اول چپ */
 .logo{
   display:flex;
   align-items:center;
@@ -58,18 +59,20 @@ body{
 /* ===== CARD ===== */
 .card{
   max-width:380px;
-  margin:48px auto; /* ✅ فاصله کمی زیاد شد */
+  margin:48px auto;
   background:#f5f5f5;
 }
 
+/* خط نازک آبی */
 .top-line{
   width:64px;
   height:4px;
   background:#1f4fa3;
 }
 
+/* 🔹 فاصله بعد از خط نازک زیاد شد */
 .content{
-  padding:36px 26px 36px;
+  padding:48px 26px 36px; /* فقط بالا زیاد شد */
   text-align:center;
 }
 
@@ -91,21 +94,20 @@ body{
 .divider{
   height:1px;
   background:#dddddd;
-  margin:28px 0; /* ✅ فاصله زیاد شد */
+  margin:28px 0;
 }
 
 .photo{
   width:200px;
-  margin:0 auto 30px; /* ✅ فاصله زیاد شد */
+  margin:0 auto 30px;
 }
 
 .photo img{
   width:100%;
 }
 
-/* لیبل‌ها مطابق عکس رسمی */
 .label{
-  margin-top:28px;   /* ✅ فاصله هر بخش زیاد شد */
+  margin-top:28px;
   font-size:15px;
   font-weight:600;
   color:#8a8a8a;
@@ -163,8 +165,9 @@ body{
     <div class="label">Passport Country</div>
     <div class="value">Afghanistan</div>
 
+    <!-- 🔹 نوع ویزه -->
     <div class="label">Visa Category</div>
-    <div class="value">Medical</div>
+    <div class="value">Tourist</div>
 
     <div class="label">Visa Sub Category</div>
     <div class="value">Short-Term</div>
