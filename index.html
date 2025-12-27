@@ -16,17 +16,33 @@
 body{
   background:#ffffff;
   color:#4f4f4f;
+  padding:0 28px;
 }
 
 /* ===== HEADER ===== */
 .header{
   background:#ffffff;
-  border-bottom:1px solid #e1e1e1; /* خط نازک چسبیده */
   padding:18px 28px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   position:relative;
+}
+
+/* خط نازک رسمی */
+.header::after{
+  content:"";
+  position:absolute;
+  left:-28px;
+  right:-28px;
+  bottom:0;
+  height:1px;
+  background:#e1e1e1;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
 }
 
 .logo img{
