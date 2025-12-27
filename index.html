@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pak Visa – Official Visa Layout</title>
+<title>Pak Visa</title>
 
 <style>
 *{
@@ -15,7 +15,7 @@
 
 body{
   background:#ffffff;
-  color:#4f4f4f;
+  color:#6a6a6a;
   padding:0 28px;
 }
 
@@ -29,7 +29,6 @@ body{
   position:relative;
 }
 
-/* خط نازک رسمی */
 .header::after{
   content:"";
   position:absolute;
@@ -40,7 +39,6 @@ body{
   background:#e1e1e1;
 }
 
-/* لوگو دست چپ اخیر */
 .logo{
   display:flex;
   align-items:center;
@@ -51,91 +49,40 @@ body{
   height:42px;
 }
 
-/* منو دست راست اخیر */
 .menu-btn{
   font-size:28px;
   color:#1f4fa3;
-  cursor:pointer;
   margin-right:-28px;
-}
-
-/* ===== MENU ===== */
-.menu{
-  position:absolute;
-  top:70px;
-  right:0;
-  background:#ffffff;
-  border:1px solid #e1e1e1;
-  width:180px;
-  display:none;
-  z-index:1000;
-}
-
-.menu a{
-  display:block;
-  padding:12px 16px;
-  color:#1f4fa3;
-  text-decoration:none;
-  font-size:15px;
-  border-bottom:1px solid #f0f0f0;
-}
-
-.menu a:last-child{
-  border-bottom:none;
-}
-
-.menu a:hover{
-  background:#f4f7fb;
 }
 
 /* ===== CARD ===== */
 .card{
   max-width:380px;
-  margin:44px auto;   /* ✅ فقط خیلی کم اضافه شد */
-  background:#f2f5f7;
-  border-radius:2px;
-  position:relative;
-  overflow:hidden;
+  margin:48px auto; /* ✅ فاصله کمی زیاد شد */
+  background:#f5f5f5;
 }
 
 .top-line{
-  position:absolute;
-  top:0;
-  left:0;
   width:64px;
   height:4px;
   background:#1f4fa3;
 }
 
 .content{
-  padding:34px 26px 28px;
+  padding:36px 26px 36px;
   text-align:center;
-  position:relative;
-  z-index:1;
 }
 
-.card::after{
-  content:"";
-  position:absolute;
-  bottom:-40px;
-  left:50%;
-  transform:translateX(-50%);
-  width:260px;
-  height:260px;
-  background:url("logo.jpg") no-repeat center;
-  background-size:contain;
-  opacity:0.02;
-  z-index:0;
-}
-
+/* ===== TEXT ===== */
 .ref-title{
   color:#1f4fa3;
-  font-size:19px;
+  font-size:20px;
   font-weight:600;
+  margin-top:18px;
 }
 
 .ref-number{
-  margin-top:8px;
+  margin-top:14px;
   font-size:26px;
   font-weight:700;
   color:#1f4fa3;
@@ -143,94 +90,55 @@ body{
 
 .divider{
   height:1px;
-  background:#dcdcdc;
-  margin:20px 0;
+  background:#dddddd;
+  margin:28px 0; /* ✅ فاصله زیاد شد */
 }
 
 .photo{
-  width:190px;
-  margin:0 auto 18px;
-  background:#ffffff;
-  padding:6px;
+  width:200px;
+  margin:0 auto 30px; /* ✅ فاصله زیاد شد */
 }
 
 .photo img{
   width:100%;
 }
 
+/* لیبل‌ها مطابق عکس رسمی */
 .label{
-  margin-top:20px;
-  font-size:13px;
-  font-weight:700;
+  margin-top:28px;   /* ✅ فاصله هر بخش زیاد شد */
+  font-size:15px;
+  font-weight:600;
   color:#8a8a8a;
 }
 
 .value{
-  margin-top:6px;
-  font-size:16px;
+  margin-top:10px;
+  font-size:18px;
+  color:#5a5a5a;
 }
 
 .back-btn{
-  margin-top:26px;
+  margin-top:40px;
 }
 
 .back-btn a{
   display:inline-block;
   background:#1f4fa3;
   color:#ffffff;
-  padding:12px 30px;
+  padding:14px 36px;
   text-decoration:none;
-  font-size:15px;
-  border-radius:2px;
+  font-size:18px;
 }
-
-/* ===== LOADER ===== */
-.loader-bg{
-  position:fixed;
-  inset:0;
-  background:#ffffff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-}
-
-.loader{
-  width:70px;
-  height:70px;
-  border:4px solid #e3ecf6;
-  border-top:4px solid #1f4fa3;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  to{transform:rotate(360deg);}
-}
-
-#app{display:none;}
 </style>
 </head>
 
 <body>
 
-<div class="loader-bg" id="loader">
-  <div class="loader"></div>
-</div>
-
-<div id="app">
-
 <div class="header">
   <div class="logo">
     <img src="logo.jpg">
   </div>
-
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="https://visa.nadra.gov.pk" target="_blank">Apply Visa</a>
-  </div>
+  <div class="menu-btn">☰</div>
 </div>
 
 <div class="card">
@@ -238,7 +146,7 @@ body{
 
   <div class="content">
     <div class="ref-title">Visa Reference Number –</div>
-    <div class="ref-number">88004451584</div>
+    <div class="ref-number">88002378778</div>
 
     <div class="divider"></div>
 
@@ -247,48 +155,40 @@ body{
     </div>
 
     <div class="label">NAME</div>
-    <div class="value">Ahmad Zai Abdul Qahir</div>
+    <div class="value">Ahmadzai Mohammad Taher</div>
 
-    <div class="label">PASSPORT NO</div>
-    <div class="value">P04382582</div>
+    <div class="label">Passport No</div>
+    <div class="value">P00015454</div>
 
-    <div class="label">PASSPORT COUNTRY</div>
+    <div class="label">Passport Country</div>
     <div class="value">Afghanistan</div>
 
-    <div class="label">APPLICATION TYPE</div>
+    <div class="label">Visa Category</div>
+    <div class="value">Medical</div>
+
+    <div class="label">Visa Sub Category</div>
+    <div class="value">Short-Term</div>
+
+    <div class="label">Application Type</div>
     <div class="value">Entry</div>
 
-    <div class="label">STAYING FACILITY</div>
+    <div class="label">Staying Facility</div>
     <div class="value">Multiple Entry – Upto 1 Year</div>
 
-    <div class="label">VISA START DATE</div>
-    <div class="value">07 Jan 2025</div>
+    <div class="label">Visa Start Date</div>
+    <div class="value">06 apr 2023</div>
 
-    <div class="label">VISA END DATE</div>
-    <div class="value">06 Jul 2025</div>
+    <div class="label">Visa End Date</div>
+    <div class="value">05 jul 2023</div>
 
-    <div class="label">VISA DURATION</div>
+    <div class="label">Visa Duration</div>
     <div class="value">60 day(s)</div>
 
     <div class="back-btn">
-      <a href="index.html">Back to Login</a>
+      <a href="#">Back to Login</a>
     </div>
   </div>
 </div>
-
-</div>
-
-<script>
-function toggleMenu(){
-  const m=document.getElementById("menu");
-  m.style.display = m.style.display==="block" ? "none" : "block";
-}
-
-setTimeout(()=>{
-  document.getElementById("loader").style.display="none";
-  document.getElementById("app").style.display="block";
-},2000);
-</script>
 
 </body>
 </html>
