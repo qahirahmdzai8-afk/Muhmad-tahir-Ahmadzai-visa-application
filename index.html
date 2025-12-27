@@ -16,6 +16,7 @@
 body{
   background:#ffffff;
   color:#6a6a6a;
+  padding:0 28px;
 }
 
 /* ===== HEADER ===== */
@@ -31,8 +32,8 @@ body{
 .header::after{
   content:"";
   position:absolute;
-  left:0;
-  right:0;
+  left:-28px;
+  right:-28px;
   bottom:0;
   height:1px;
   background:#e1e1e1;
@@ -51,61 +52,7 @@ body{
 .menu-btn{
   font-size:28px;
   color:#1f4fa3;
-  cursor:pointer;
-}
-
-/* ===== MENU ===== */
-.menu{
-  position:absolute;
-  top:64px;
-  right:20px;
-  background:#ffffff;
-  border:1px solid #ddd;
-  display:none;
-  z-index:10;
-}
-
-.menu a{
-  display:block;
-  padding:12px 20px;
-  color:#333;
-  text-decoration:none;
-}
-
-.menu a:hover{
-  background:#f2f2f2;
-}
-
-/* ===== LOADER ===== */
-.loader{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#ffffff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-}
-
-.spinner{
-  width:70px;
-  height:70px;
-  border:4px solid #dbe9f5;
-  border-top:4px solid #1f4fa3;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  100%{ transform:rotate(360deg); }
-}
-
-/* ===== CONTENT ===== */
-.main{
-  display:none;
+  margin-right:-28px;
 }
 
 /* ===== CARD ===== */
@@ -122,14 +69,16 @@ body{
 }
 
 .content{
-  padding:48px 26px 36px;
+  padding:36px 26px 36px;
   text-align:center;
 }
 
+/* ===== TEXT ===== */
 .ref-title{
   color:#1f4fa3;
   font-size:20px;
   font-weight:600;
+  margin-top:18px;
 }
 
 .ref-number{
@@ -139,9 +88,15 @@ body{
   color:#1f4fa3;
 }
 
+.divider{
+  height:1px;
+  background:#dddddd;
+  margin:28px 0;
+}
+
 .photo{
   width:200px;
-  margin:30px auto;
+  margin:0 auto 30px;
 }
 
 .photo img{
@@ -149,52 +104,95 @@ body{
 }
 
 .label{
-  margin-top:26px;
+  margin-top:28px;
   font-size:15px;
   font-weight:600;
   color:#8a8a8a;
 }
 
 .value{
-  margin-top:8px;
+  margin-top:10px;
   font-size:18px;
+  color:#5a5a5a;
 }
 
 .back-btn{
-  margin-top:36px;
+  margin-top:40px;
 }
 
 .back-btn a{
+  display:inline-block;
   background:#1f4fa3;
-  color:#fff;
+  color:#ffffff;
   padding:14px 36px;
   text-decoration:none;
-  display:inline-block;
+  font-size:18px;
+}
+
+/* ===== OFFICIAL DOUBLE LOADER ===== */
+.loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.double-ring{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:3px solid transparent;
+  border-top:3px solid #1f4fa3;
+  border-right:3px solid #1f4fa3;
+  animation:spin 1.2s linear infinite;
+  position:relative;
+}
+
+.double-ring::after{
+  content:"";
+  position:absolute;
+  top:10px;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  border-radius:50%;
+  border:3px solid transparent;
+  border-bottom:3px solid #1f4fa3;
+  border-left:3px solid #1f4fa3;
+}
+
+@keyframes spin{
+  100%{ transform:rotate(360deg); }
+}
+
+/* hide page until loaded */
+.page{
+  display:none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔹 LOADER -->
+<!-- 🔵 LOADER -->
 <div class="loader" id="loader">
-  <div class="spinner"></div>
+  <div class="double-ring"></div>
 </div>
 
-<!-- 🔹 MAIN CONTENT -->
-<div class="main" id="main">
+<!-- 🔵 PAGE -->
+<div class="page" id="page">
 
 <div class="header">
   <div class="logo">
     <img src="logo.jpg">
   </div>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menu">
-    <a href="#">Home</a>
-    <a href="#">Track Visa</a>
-    <a href="#">Logout</a>
-  </div>
+  <div class="menu-btn">☰</div>
 </div>
 
 <div class="card">
@@ -204,12 +202,41 @@ body{
     <div class="ref-title">Visa Reference Number –</div>
     <div class="ref-number">88002378778</div>
 
+    <div class="divider"></div>
+
     <div class="photo">
       <img src="photo.jpg">
     </div>
 
+    <div class="label">NAME</div>
+    <div class="value">Ahmadzai Mohammad Taher</div>
+
+    <div class="label">Passport No</div>
+    <div class="value">P00015454</div>
+
+    <div class="label">Passport Country</div>
+    <div class="value">Afghanistan</div>
+
     <div class="label">Visa Category</div>
-    <div class="value">Tourist</div>
+    <div class="value">Medical</div>
+
+    <div class="label">Visa Sub Category</div>
+    <div class="value">Short-Term</div>
+
+    <div class="label">Application Type</div>
+    <div class="value">Entry</div>
+
+    <div class="label">Staying Facility</div>
+    <div class="value">Multiple Entry – Upto 1 Year</div>
+
+    <div class="label">Visa Start Date</div>
+    <div class="value">06 apr 2023</div>
+
+    <div class="label">Visa End Date</div>
+    <div class="value">05 jul 2023</div>
+
+    <div class="label">Visa Duration</div>
+    <div class="value">60 day(s)</div>
 
     <div class="back-btn">
       <a href="#">Back to Login</a>
@@ -219,18 +246,12 @@ body{
 
 </div>
 
-<!-- 🔹 JAVASCRIPT -->
 <script>
-function toggleMenu(){
-  const menu = document.getElementById("menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
 window.onload = function(){
   setTimeout(function(){
     document.getElementById("loader").style.display = "none";
-    document.getElementById("main").style.display = "block";
-  }, 1500); // مثل سایت رسمی
+    document.getElementById("page").style.display = "block";
+  }, 1500); // مثل سایت دولتی
 }
 </script>
 
