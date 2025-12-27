@@ -23,7 +23,7 @@ body{
 .header{
   background:#ffffff;
   border-bottom:1px solid #e1e1e1;
-  padding:32px 28px;   /* ✅ فقط فاصله بالا زیاد شد */
+  padding:40px 28px;   /* ✅ فاصله بالا بیشتر (مثل اصلی) */
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -43,7 +43,7 @@ body{
 /* ===== MENU ===== */
 .menu{
   position:absolute;
-  top:70px;
+  top:80px;
   right:28px;
   background:#ffffff;
   border:1px solid #e1e1e1;
@@ -72,26 +72,25 @@ body{
 /* ===== CARD ===== */
 .card{
   max-width:380px;
-  margin:34px auto;
+  margin:44px auto;   /* ✅ فاصله کارت از بالا بیشتر */
   background:#f2f5f7;
   border-radius:2px;
   position:relative;
   overflow:hidden;
 }
 
-/* ✅ خط آبی بالای صفحه، دست چپ */
+/* ✅ خط آبی دقیقاً مثل Official */
 .top-line{
-  position:fixed;
-  top:0;
-  left:28px;
-  width:64px;
+  position:absolute;
+  top:14px;
+  left:16px;
+  width:70px;
   height:4px;
   background:#1f4fa3;
-  z-index:2000;
 }
 
 .content{
-  padding:30px 26px 28px;
+  padding:36px 26px 28px; /* بالا کمی پایین‌تر تا خط آبی */
   text-align:center;
   position:relative;
   z-index:1;
