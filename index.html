@@ -40,28 +40,30 @@ body{
   background:#e1e1e1;
 }
 
-/* ✅ فقط همین اصلاح */
+/* لوگو دست چپ اخیر */
 .logo{
   display:flex;
   align-items:center;
-  margin-left:-28px; /* لوگو دقیقاً دست چپِ اخیر */
+  margin-left:-28px;
 }
 
 .logo img{
   height:42px;
 }
 
+/* ✅ منو دقیقاً دست راست اخیر (مثل سایت رسمی) */
 .menu-btn{
   font-size:28px;
   color:#1f4fa3;
   cursor:pointer;
+  margin-right:-28px;
 }
 
 /* ===== MENU ===== */
 .menu{
   position:absolute;
   top:70px;
-  right:28px;
+  right:0; /* باز شدن دقیق از سمت راست */
   background:#ffffff;
   border:1px solid #e1e1e1;
   width:180px;
