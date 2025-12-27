@@ -16,7 +16,6 @@
 body{
   background:#ffffff;
   color:#6a6a6a;
-  padding:0 28px;
 }
 
 /* ===== HEADER ===== */
@@ -32,14 +31,13 @@ body{
 .header::after{
   content:"";
   position:absolute;
-  left:-28px;
-  right:-28px;
+  left:0;
+  right:0;
   bottom:0;
   height:1px;
   background:#e1e1e1;
 }
 
-/* 🔹 لوگو کاملاً از اول چپ */
 .logo{
   display:flex;
   align-items:center;
@@ -53,7 +51,61 @@ body{
 .menu-btn{
   font-size:28px;
   color:#1f4fa3;
-  margin-right:-28px;
+  cursor:pointer;
+}
+
+/* ===== MENU ===== */
+.menu{
+  position:absolute;
+  top:64px;
+  right:20px;
+  background:#ffffff;
+  border:1px solid #ddd;
+  display:none;
+  z-index:10;
+}
+
+.menu a{
+  display:block;
+  padding:12px 20px;
+  color:#333;
+  text-decoration:none;
+}
+
+.menu a:hover{
+  background:#f2f2f2;
+}
+
+/* ===== LOADER ===== */
+.loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.spinner{
+  width:70px;
+  height:70px;
+  border:4px solid #dbe9f5;
+  border-top:4px solid #1f4fa3;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{ transform:rotate(360deg); }
+}
+
+/* ===== CONTENT ===== */
+.main{
+  display:none;
 }
 
 /* ===== CARD ===== */
@@ -63,25 +115,21 @@ body{
   background:#f5f5f5;
 }
 
-/* خط نازک آبی */
 .top-line{
   width:64px;
   height:4px;
   background:#1f4fa3;
 }
 
-/* 🔹 فاصله بعد از خط نازک زیاد شد */
 .content{
-  padding:48px 26px 36px; /* فقط بالا زیاد شد */
+  padding:48px 26px 36px;
   text-align:center;
 }
 
-/* ===== TEXT ===== */
 .ref-title{
   color:#1f4fa3;
   font-size:20px;
   font-weight:600;
-  margin-top:18px;
 }
 
 .ref-number{
@@ -91,15 +139,9 @@ body{
   color:#1f4fa3;
 }
 
-.divider{
-  height:1px;
-  background:#dddddd;
-  margin:28px 0;
-}
-
 .photo{
   width:200px;
-  margin:0 auto 30px;
+  margin:30px auto;
 }
 
 .photo img{
@@ -107,40 +149,52 @@ body{
 }
 
 .label{
-  margin-top:28px;
+  margin-top:26px;
   font-size:15px;
   font-weight:600;
   color:#8a8a8a;
 }
 
 .value{
-  margin-top:10px;
+  margin-top:8px;
   font-size:18px;
-  color:#5a5a5a;
 }
 
 .back-btn{
-  margin-top:40px;
+  margin-top:36px;
 }
 
 .back-btn a{
-  display:inline-block;
   background:#1f4fa3;
-  color:#ffffff;
+  color:#fff;
   padding:14px 36px;
   text-decoration:none;
-  font-size:18px;
+  display:inline-block;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🔹 LOADER -->
+<div class="loader" id="loader">
+  <div class="spinner"></div>
+</div>
+
+<!-- 🔹 MAIN CONTENT -->
+<div class="main" id="main">
+
 <div class="header">
   <div class="logo">
     <img src="logo.jpg">
   </div>
-  <div class="menu-btn">☰</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Track Visa</a>
+    <a href="#">Logout</a>
+  </div>
 </div>
 
 <div class="card">
@@ -150,48 +204,35 @@ body{
     <div class="ref-title">Visa Reference Number –</div>
     <div class="ref-number">88002378778</div>
 
-    <div class="divider"></div>
-
     <div class="photo">
       <img src="photo.jpg">
     </div>
 
-    <div class="label">NAME</div>
-    <div class="value">Ahmadzai Mohammad Taher</div>
-
-    <div class="label">Passport No</div>
-    <div class="value">P00015454</div>
-
-    <div class="label">Passport Country</div>
-    <div class="value">Afghanistan</div>
-
-    <!-- 🔹 نوع ویزه -->
     <div class="label">Visa Category</div>
     <div class="value">Tourist</div>
-
-    <div class="label">Visa Sub Category</div>
-    <div class="value">Short-Term</div>
-
-    <div class="label">Application Type</div>
-    <div class="value">Entry</div>
-
-    <div class="label">Staying Facility</div>
-    <div class="value">Multiple Entry – Upto 1 Year</div>
-
-    <div class="label">Visa Start Date</div>
-    <div class="value">06 apr 2023</div>
-
-    <div class="label">Visa End Date</div>
-    <div class="value">05 jul 2023</div>
-
-    <div class="label">Visa Duration</div>
-    <div class="value">60 day(s)</div>
 
     <div class="back-btn">
       <a href="#">Back to Login</a>
     </div>
   </div>
 </div>
+
+</div>
+
+<!-- 🔹 JAVASCRIPT -->
+<script>
+function toggleMenu(){
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+window.onload = function(){
+  setTimeout(function(){
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("main").style.display = "block";
+  }, 1500); // مثل سایت رسمی
+}
+</script>
 
 </body>
 </html>
