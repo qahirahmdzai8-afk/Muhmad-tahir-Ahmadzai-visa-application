@@ -16,14 +16,14 @@
 body{
   background:#ffffff;
   color:#4f4f4f;
-  padding:0 28px; /* ⬅️ چپ و راست مثل سایت اصلی */
+  padding:0 28px;
 }
 
 /* ===== HEADER ===== */
 .header{
   background:#ffffff;
   border-bottom:1px solid #e1e1e1;
-  padding:18px 28px; /* ⬅️ فاصله بالا و اطراف لوگو */
+  padding:32px 28px;   /* ✅ فقط فاصله بالا زیاد شد */
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -72,20 +72,22 @@ body{
 /* ===== CARD ===== */
 .card{
   max-width:380px;
-  margin:34px auto; /* ⬅️ فاصله کارت از هدر */
+  margin:34px auto;
   background:#f2f5f7;
   border-radius:2px;
   position:relative;
   overflow:hidden;
 }
 
+/* ✅ خط آبی بالای صفحه، دست چپ */
 .top-line{
-  position:absolute;
-  top:18px;     /* ⬅️ جای خط آبی */
-  left:18px;
-  width:64px;   /* ⬅️ اندازه خط مثل اصلی */
+  position:fixed;
+  top:0;
+  left:28px;
+  width:64px;
   height:4px;
   background:#1f4fa3;
+  z-index:2000;
 }
 
 .content{
